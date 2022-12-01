@@ -21,15 +21,12 @@
 
 (define (read_elf_cals max-sums cur_sum index file) 
     (if (< index (length file))
-        (if (string? (list-ref file index))
-            (if (equal? (list-ref file index) "")
-                (if (sum-higher? max-sums cur_sum 0)
-                    (read_elf_cals (reorganize-max-sums max-sums cur_sum) 0 (+ index 1) file)
-                    (read_elf_cals max-sums 0 (+ index 1) file)
-                )
-                (read_elf_cals max-sums (+ cur_sum (string->number (list-ref file index))) (+ index 1) file)
+        (if (equal? (list-ref file index) "")
+            (if (sum-higher? max-sums cur_sum 0)
+                (read_elf_cals (reorganize-max-sums max-sums cur_sum) 0 (+ index 1) file)
+                (read_elf_cals max-sums 0 (+ index 1) file)
             )
-            max-sums
+            (read_elf_cals max-sums (+ cur_sum (string->number (list-ref file index))) (+ index 1) file)
         )
         max-sums
     )
