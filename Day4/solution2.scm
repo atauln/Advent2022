@@ -51,7 +51,7 @@
     )
 )
 
-(define (sol-2 index sum)
+(define (sol-2 index num)
     (if (>= index (length INPUT))
         sum
         (let ((vals (get-values (list-ref INPUT index))))
@@ -63,5 +63,5 @@
     )
 )
 
-(display (sol-2 0 0))
+(println (sol-2 0 0))
 (newline)
