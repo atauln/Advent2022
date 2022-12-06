@@ -27,8 +27,8 @@
 )
 
 (define (sol1 index)
-    (if (unique? (substring (list-ref INPUT 0) index (+ index 14)) 0)
-        (+ index 14)
+    (if (unique? (substring (list-ref INPUT 0) index (+ index 4)) 0)
+        (+ index 4)
         (sol1 (+ index 1))
     )
 )
